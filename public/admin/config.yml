@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "case_studies"
+    label: "Case Studies & Work"
+    folder: "src/content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Client Name", name: "client", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["POS & Enterprise Systems", "Workflow Automations", "AI Architecture", "Web Applications"] }
+      - { label: "GitHub Repository URL", name: "githubUrl", widget: "string", required: false, hint: "https://github.com/org/repo" }
+      - { label: "Live Demo URL", name: "liveUrl", widget: "string", required: false, hint: "https://demo.netlify.app" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Key Performance Metric", name: "metric", widget: "string", hint: "e.g., 99.98% Accuracy / +310% Speed" }
+      - { label: "Featured Status", name: "featured", widget: "boolean", default: false }
+      - { label: "Project Date", name: "date", widget: "datetime" }
+      - { label: "Executive Summary", name: "summary", widget: "text" }
+      - { label: "Full Technical Breakdown", name: "body", widget: "markdown" }
+
+  - name: "services"
+    label: "Agency Services"
+    folder: "src/content/services"
+    create: true
+    fields:
+      - { label: "Service Name", name: "title", widget: "string" }
+      - { label: "Icon Identifier", name: "icon", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string" }
+      - { label: "Detailed Description", name: "description", widget: "text" }
+      - { label: "Deliverables List", name: "deliverables", widget: "list" }
+
+  - name: "settings"
+    label: "Site Branding & Settings"
+    files:
+      - file: "src/content/settings/general.json"
+        label: "General Agency Config"
+        name: "general"
+        fields:
+          - { label: "Agency Name", name: "siteTitle", widget: "string", default: "Ontogenetic Systems" }
+          - { label: "Hero Headline", name: "heroHeadline", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string" }
+          - { label: "Availability Status", name: "availability", widget: "string", default: "Available for Q3/Q4 Projects" }

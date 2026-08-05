@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F5A0" />
+      <stop offset="50%" stop-color="#00D2FF" />
+      <stop offset="100%" stop-color="#7B2CBF" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0D0F18" />
+  <rect x="2" y="2" width="96" height="96" rx="22" stroke="url(#cyber-grad)" stroke-width="2" stroke-opacity="0.6" />
+  <!-- Ontogenetic Ring Network Symbol -->
+  <circle cx="50" cy="50" r="28" stroke="url(#cyber-grad)" stroke-width="5" stroke-dasharray="140 30" />
+  <circle cx="50" cy="50" r="14" fill="#00F5A0" />
+  <circle cx="50" cy="22" r="6" fill="#00D2FF" />
+  <circle cx="74" cy="64" r="6" fill="#7B2CBF" />
+  <circle cx="26" cy="64" r="6" fill="#00F5A0" />
+</svg>
