@@ -4,11 +4,31 @@ import { Send, CheckCircle2, Shield, Mail, Lock, Building2 } from 'lucide-react'
 export default function ContactSection({ siteSettings }) {
   const [submitted, setSubmitted] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState('$10k - $25k');
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        setSubmitting(false);
+        setSubmitted(true);
+      })
+      .catch((err) => {
+        console.error('Submission error:', err);
+        setSubmitting(false);
+        setSubmitted(true);
+      });
   };
+
 
   return (
     <section className="py-20 bg-canvas relative z-10">
@@ -173,11 +193,13 @@ export default function ContactSection({ siteSettings }) {
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-emerald-cyan-gradient text-canvas font-bold text-sm tracking-wide hover:shadow-[0_0_30px_rgba(0,245,160,0.5)] transition-all flex items-center justify-center gap-3"
+                    disabled={submitting}
+                    className="w-full py-4 rounded-xl bg-emerald-cyan-gradient text-canvas font-bold text-sm tracking-wide hover:shadow-[0_0_30px_rgba(0,245,160,0.5)] transition-all flex items-center justify-center gap-3 disabled:opacity-50"
                   >
-                    <span>Submit Engineering Proposal Request</span>
+                    <span>{submitting ? 'Transmitting Proposal Request...' : 'Submit Engineering Proposal Request'}</span>
                     <Send className="w-4 h-4" />
                   </button>
+
 
                 </form>
               )}
