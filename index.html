@@ -13,8 +13,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   </head>
   <body class="bg-canvas text-brand-text font-sans antialiased selection:bg-cyber-emerald selection:text-canvas overflow-x-hidden min-h-screen">
+    <!-- Static Hidden HTML Form for Netlify Form Detection & Email Alerts in React -->
+    <form name="agency-contact" netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+      <input type="hidden" name="form-name" value="agency-contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="service" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+
 
