@@ -12,8 +12,9 @@ export default function ContactSection({ siteSettings }) {
 
     const form = e.target;
     const formData = new FormData(form);
+    formData.set('form-name', 'agency-contact');
 
-    fetch('/', {
+    fetch('/index.html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
@@ -28,6 +29,7 @@ export default function ContactSection({ siteSettings }) {
         setSubmitted(true);
       });
   };
+
 
 
   return (
